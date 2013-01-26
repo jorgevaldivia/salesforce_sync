@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  salesforce_id: MyString
+  name: MyString
+  last_synced_at: 2013-01-23 22:30:07
+  last_error: MyText
+  last_sync_status: MyString
+  last_successful_synced_at: 2013-01-23 22:30:07
+  frequency: MyString
+
+two:
+  salesforce_id: MyString
+  name: MyString
+  last_synced_at: 2013-01-23 22:30:07
+  last_error: MyText
+  last_sync_status: MyString
+  last_successful_synced_at: 2013-01-23 22:30:07
+  frequency: MyString

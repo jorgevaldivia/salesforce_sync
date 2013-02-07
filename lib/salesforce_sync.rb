@@ -6,16 +6,16 @@ require "databasedotcom"
 
 module SalesforceSync
 
-	def format_salesforce_datetime d
-		d.strftime( "%Y-%m-%d %H:%M:%S.0z" )
-	end
+  def format_salesforce_datetime d
+    d.strftime( "%Y-%m-%d %H:%M:%S.0z" )
+  end
 
-	def self.client
+  def self.client
     client = salesforce_sync_store[ :client ]
 
     if client.blank?
-    	set_client
-    	client = salesforce_sync_store[ :client ]
+      set_client
+      client = salesforce_sync_store[ :client ]
     end
 
     client
@@ -23,10 +23,10 @@ module SalesforceSync
 
   def self.set_client
 
-  	config = YAML.load_file "#{Rails.root}/config/salesforce_sync.yml"
+    config = YAML.load_file "#{Rails.root}/config/salesforce_sync.yml"
 
-  	client = ::Databasedotcom::Client.new ({ verify_mode: OpenSSL::SSL::VERIFY_NONE, :client_id => config["client_id"], :client_secret => config["client_secret"] })
-		token = client.authenticate :username => config["username"], :password => config["password"]
+    client = ::Databasedotcom::Client.new ({ verify_mode: OpenSSL::SSL::VERIFY_NONE, :client_id => config["client_id"], :client_secret => config["client_secret"] })
+    token = client.authenticate :username => config["username"], :password => config["password"]
 
     salesforce_sync_store[ :client ] = client
   end
